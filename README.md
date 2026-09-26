@@ -1,8 +1,8 @@
 # Explainable Loan Approval Prediction Using Machine Learning
 
-This project explores how Explainable Artificial Intelligence (XAI) can be used to understand the predictions of a machine-learning classification model. A Decision Tree classifier is trained on a synthetic loan-approval dataset, and its predictions are analyzed using **Permutation Importance** and **SHAP (SHapley Additive exPlanations)**.
+This project explores how Explainable Artificial Intelligence (XAI) can be used to understand the predictions of a machine-learning classification model. A Decision Tree classifier is trained on a synthetic loan-approval dataset, and its predictions are analyzed using Permutation Importance and SHAP (SHapley Additive exPlanations).
 
-The project focuses not only on predictive performance, but also on understanding **which features influence the model globally and why the model makes specific individual predictions**.
+The project focuses not only on predictive performance but also on understanding which features influence the model globally and why the model makes specific individual predictions.
 
 ---
 
@@ -59,7 +59,7 @@ Experiment 2 was used for the final model evaluation and XAI analysis.
 
 ## Machine-Learning Model
 
-The final model uses a **Decision Tree classifier** within a scikit-learn preprocessing pipeline.
+The final model uses a Decision Tree classifier within a scikit-learn preprocessing pipeline.
 
 Key configuration:
 
@@ -79,7 +79,7 @@ The final Experiment 2 model achieved the following test results:
 
 | Metric | Result |
 |---|---:|
-| Accuracy | **80.0%** |
+| Accuracy | 80.0% |
 | Rejected Precision | 0.67 |
 | Rejected Recall | 0.75 |
 | Rejected F1-score | 0.71 |
@@ -104,22 +104,15 @@ Two complementary XAI approaches are used to investigate the trained model.
 
 ### Permutation Importance
 
-Permutation Importance measures how model performance changes when the values of individual features are randomly shuffled.
+Permutation importance measures how model performance changes when the values of individual features are randomly shuffled.
 
-The analysis identified:
-
-1. **Credit history**
-2. **Income**
-
-as the two most influential features globally.
-
+The analysis identified **credit history** and **income** as the two most influential features globally.
 
 ![Permutation Feature Importance](figures/permutation_importance.png)
 
-
 ### SHAP
 
-SHAP explains how individual feature values contribute to model predictions relative to a baseline model output.
+SHAP estimates how individual feature values contribute to a model prediction relative to a baseline model output.
 
 Three local prediction cases were investigated:
 
@@ -149,9 +142,9 @@ The two XAI methods produced the following global feature rankings:
 | Self Employed | 4 | 4 |
 | Education | 3 | 5 |
 
-Both methods identified **credit history as the most important feature** and **income as the second most important feature**.
+Both methods identified **credit history** as the most important feature and **income** as the second most important feature.
 
-Differences among the remaining features demonstrate that explainability techniques do not necessarily measure feature importance in the same way. Permutation Importance evaluates model dependence through changes in predictive performance, while SHAP measures contributions to individual model outputs.
+Differences among the remaining features demonstrate that explainability techniques do not necessarily measure feature importance in the same way. Permutation importance evaluates model dependence through changes in predictive performance, while SHAP measures contributions to individual model outputs.
 
 ---
 
@@ -162,32 +155,29 @@ Differences among the remaining features demonstrate that explainability techniq
 - Income was consistently ranked as the second most influential feature.
 - Global feature importance does not necessarily determine which feature dominates an individual prediction.
 - SHAP reveals both the magnitude and direction of individual feature contributions.
-- Permutation Importance and SHAP provide complementary perspectives on model behavior.
+- Permutation importance and SHAP provide complementary perspectives on model behavior.
 
 ---
 
 ## Project Structure
 
-The final repository will be organized approximately as follows:
+The repository is organized as follows:
 
 ```text
-xai_project/
+explainable-loan-approval/
 │
 ├── xai_loan_project.ipynb
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
 │
-├── figures/
-│   ├── permutation_importance.png
-│   ├── shap_beeswarm.png
-│   ├── shap_rejection.png
-│   ├── shap_approval.png
-│   ├── shap_borderline.png
-│   └── xai_ranking_comparison.png
-│
-└── paper/
-    └── xai_loan_project_report.pdf
+└── figures/
+    ├── permutation_importance.png
+    ├── shap_beeswarm.png
+    ├── shap_rejection.png
+    ├── shap_approval.png
+    ├── shap_borderline.png
+    └── xai_ranking_comparison.png
 ```
 
 The Jupyter notebook contains the complete experiment, including synthetic data generation, model development, evaluation, XAI analysis, visualizations, and detailed interpretation.
@@ -199,8 +189,8 @@ The Jupyter notebook contains the complete experiment, including synthetic data 
 Clone the repository and enter the project directory:
 
 ```bash
-git clone <repository-url>
-cd xai_project
+git clone https://github.com/PabitraBhandari/explainable-loan-approval.git
+cd explainable-loan-approval
 ```
 
 Create a virtual environment:
@@ -218,7 +208,7 @@ source venv/bin/activate
 Install the required dependencies:
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 Start Jupyter Notebook:
@@ -245,9 +235,9 @@ Open `xai_loan_project.ipynb` and run the notebook from top to bottom.
 
 ## Limitations
 
-This project uses **synthetic data** and a limited set of applicant features. The results demonstrate the behavior of the experimental machine-learning model and should not be interpreted as findings about real-world lending decisions.
+This project uses synthetic data and a limited set of applicant features. The results demonstrate the behavior of the experimental machine-learning model and should not be interpreted as findings about real-world lending decisions.
 
-SHAP and Permutation Importance explain the behavior of the trained model; they do **not establish causal relationships** between applicant characteristics and loan outcomes.
+SHAP and permutation importance explain the behavior of the trained model; they do not establish causal relationships between applicant characteristics and loan outcomes.
 
 ---
 
@@ -255,21 +245,24 @@ SHAP and Permutation Importance explain the behavior of the trained model; they 
 
 Possible extensions include:
 
-- evaluating the approach on a public real-world dataset
-- comparing Decision Trees with Random Forest, Gradient Boosting, or other models
-- using cross-validation and hyperparameter optimization
-- investigating additional XAI techniques
-- performing model fairness and bias analysis
-- studying the stability of explanations across different models and datasets
+- Evaluating the approach on a public real-world dataset
+- Comparing Decision Trees with Random Forest, Gradient Boosting, or other models
+- Using cross-validation and hyperparameter optimization
+- Investigating additional XAI techniques
+- Performing model fairness and bias analysis
+- Studying the stability of explanations across different models and datasets
 
 ---
 
 ## Reproducibility
 
-A fixed random state is used where appropriate to make the experiment reproducible. The completed notebook has also been tested by restarting the Jupyter kernel and running all cells sequentially without errors.
+A fixed random state is used where appropriate to make the experiment reproducible. The notebook was tested by restarting the Jupyter kernel and running all cells sequentially without errors.
 
 ---
 
 ## Disclaimer
 
-This project was developed for **educational and research purposes**. This project was developed for **educational and research purposes**. It is not a real lending decision system and should not be used to make financial or credit decisions.
+This project was developed for educational and research purposes. It is not a real lending decision system and should not be used to make financial or credit decisions.
+
+
+
