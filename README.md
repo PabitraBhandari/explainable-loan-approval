@@ -272,4 +272,4 @@ A fixed random state is used where appropriate to make the experiment reproducib
 
 ## Disclaimer
 
-This project was developed for **educational and research purposes*This project was developed for **educational and research purposes**. It is not a real lending decision system and should not be used to make financial or credit decisions.
+This project was developed for **educational and research purposes**This project was developed for **educational and research purposes**. It is not a real lending decision system and should not be used to make financial or credit decisions.
